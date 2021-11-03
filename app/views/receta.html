@@ -1,0 +1,52 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-shopping-basket"></i>  Catálogo de Recetas
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_receta" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="nombre">Receta</label>
+                                <input type="number" class="form-control" id="cod_receta_cat" name="cod_receta_cat">
+                            </div>
+                            <div class="form-group">
+                                <label for="ingrediente">Ingrediente</label>
+                                <input type="number" class="form-control" id="cod_ingredienetes" name="cod_ingredientes">
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="text" class="form-control" id="cantidad" name="cantidad">
+                            </div>
+                            <div class="form-group">
+                                <label for="unidad">Unidades</label>
+                                <input type="number" class="form-control" id="cod_unidad" name="cod_unidad">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="btn_frm_cat">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaCat" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Chef</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/catalogo.js"></script>
+<script src="app/controllers/mostrarCat.js"></script>

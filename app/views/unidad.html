@@ -1,0 +1,44 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-balance-scale"></i>  Unidades
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_unidad" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="nombre">Medida</label>
+                                <input type="text" class="form-control" id="nom_tipo" name="nom_unidad">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Abreviatura</label>
+                                <input type="text" class="form-control" id="abrev_unidad" name="abrev_unidad">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="btn_frm_unit">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaUnidad" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Medida</th>
+                        <th scope="col">Abreviatura</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/unidad.js"></script>
+<script src="app/controllers/mostrarUnidad.js"></script>

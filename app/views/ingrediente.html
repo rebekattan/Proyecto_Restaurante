@@ -1,0 +1,56 @@
+<?php
+    require_once '../models/conexion.php';
+?>
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-shopping-basket"></i>  Ingredientes
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_ingrediente" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="nombre">Ingrediente</label>
+                                <input type="text" class="form-control" id="nom_ingredientes" name="nom_ingredientes">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Tipo</label>
+                                <input type="number" class="form-control" id="cod_tipo" name="cod_tipo">
+                            </div>
+                            <div class="form-group">
+                                <label for="marca">Marca</label>
+                                <input type="number" class="form-control" id="cod_marca" name="cod_marca">
+                            </div>
+                            <div class="form-group">
+                                <label for="costo">Precio Unitario</label>
+                                <input type="text" class="form-control" id="costo_unitario_ingr" name="costo_unitario_ingr">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="btn_frm_ingr">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaIngr" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Costo Unitario</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/ingrediente.js"></script>
+<script src="app/controllers/mostrarIngr.js"></script>

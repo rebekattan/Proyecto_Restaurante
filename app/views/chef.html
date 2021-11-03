@@ -1,0 +1,49 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-user-circle"></i>  Chef
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_chef" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido</label>
+                                <input type="text" class="form-control" id="apellido" name="apellido">
+                            </div>
+                            <div class="form-group">
+                                <label for="salario">Salario</label>
+                                <input type="text" class="form-control" id="salario" name="salario">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="btn_frm">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaChef" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Salario</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/chef.js"></script>
+<script src="app/controllers/mostrarChef.js"></script>

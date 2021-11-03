@@ -1,0 +1,44 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-barcode"></i>  Tipo
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_tipo" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="nombre">Tipo</label>
+                                <input type="text" class="form-control" id="nom_tipo" name="nom_tipo">
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Descripción</label>
+                                <input type="text" class="form-control" id="descripcion" name="desc_tipo">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="btn_frm_tipo">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaTipo" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Descripción</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/tipo.js"></script>
+<script src="app/controllers/mostrarTipo.js"></script>
