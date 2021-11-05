@@ -5,10 +5,9 @@ $(document).ready(function(){
             dataSrc:''
         },
         columns :[
-            {data: 'cod_receta_cat'},
-            {data: 'receta'},
-            {data: 'desc_receta'},
-            {data: 'chef'}
+            {data: 'cod_receta_catalogo'},
+            {data: 'nom_receta'},
+            {data: 'desc_receta'}
         ]
     })
 });
