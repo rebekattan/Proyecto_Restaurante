@@ -5,47 +5,43 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <h2 class="card-title">
-                            <i class="fas fa-shopping-basket"></i>  Catálogo de Recetas
+                            <i class="fas fa-shopping-basket"></i>  Pedido Detalle
                         </h2>
                     </div>
                     <div class="card-body">
-                        <form id="frm_receta" method="POST" autocomplete="off" onsubmit="return false">
+                        <form id="frm_pedido_detalle" method="POST" autocomplete="off" onsubmit="return false">
                             <div class="form-group">
-                                <label for="nombre">Receta</label>
-                                <select class="form-control" name="cod_receta_catalogo" id="cod_receta_catalogo"></select>
+                                <label for="cod_pedidos">Código del Pedido</label>
+                                <select class="form-control" name="cod_pedidos" id="cod_pedidos"></select>
                             </div>
                             <div class="form-group">
-                                <label for="Productos">Productos</label>
-                                <select class="form-control" name="cod_Productos" id="cod_Productos"></select>
+                                <label for="cod_platillo">Platillo</label>
+                                <select class="form-control" name="cod_platillo" id="cod_platillo"></select>
                             </div>
                             <div class="form-group">
                                 <label for="cantidad">Cantidad</label>
                                 <input type="text" class="form-control" id="cantidad" name="cantidad">
                             </div>
                             <div class="form-group">
-                                <label for="unidad">Unidades</label>
-                                <select class="form-control" name="cod_unidad" id="cod_unidad"></select>
-                            </div>
-                            <div class="form-group">
-                                <label for="empleado">Empleado</label>
-                                <select class="form-control" name="empleado" id="empleado"></select>
+                                <label for="cod_estado">Estado</label>
+                                <select class="form-control" name="cod_estado" id="cod_estado"></select>
                             </div>
 
-                            <button type="submit" class="btn btn-primary" id="btn_frm_receta">Agregar</button>
+                            <button type="submit" class="btn btn-primary" id="btn_frm_pedido_detalle">Agregar</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <table id="tablaReceta" class="table">
+                <table id="tablaPedidoDetalle" class="table">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">id</th>
-                        <th scope="col">Receta</th>
+                        <th scope="col">Código del Pedido</th>
                         <th scope="col">Producto</th>
+                        <th scope="col">Platillo</th>
                         <th scope="col">Cantidad</th>
-                        <th scope="col">Unidad</th>
-                        <th scope="col">Empleado</th>
+                        <th scope="col">Estado</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -55,5 +51,5 @@
         </div>
     </div>
 </section>
-<script src="app/controllers/receta.js"></script>
-<script src="app/controllers/mostrarReceta.js"></script>
+<script src="app/controllers/pedido_detalle.js"></script>
+<script src="app/controllers/mostrarPedidoDetalle.js"></script>

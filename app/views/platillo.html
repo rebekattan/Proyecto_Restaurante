@@ -1,0 +1,59 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-shopping-basket"></i>  Platillo
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_platillo" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="nombre_receta">Receta</label>
+                                <select class="form-control" name="cod_receta_catalogo" id="cod_receta_catalogo"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="raciones">Raciones</label>
+                                <input type="text" class="form-control" id="raciones" name="raciones">
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio</label>
+                                <input type="text" class="form-control" id="precio" name="precio">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo_platillo">Tipo de Platillo</label>
+                                <select class="form-control" name="tipo_platillo" id="tipo_platillo"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="existencia">Existencia</label>
+                                <input type="text" class="form-control" id="existencia" name="existencia">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="btn_frm_platillo">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaPlatillo" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Receta</th>
+                        <th scope="col">Raciones</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Tipo de Platillo</th>
+                        <th scope="col">Existencia</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/platillo.js"></script>
+<script src="app/controllers/mostrarPlatillo.js"></script>

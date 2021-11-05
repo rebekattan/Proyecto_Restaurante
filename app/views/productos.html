@@ -1,6 +1,3 @@
-<?php
-    require_once '../models/conexion.php';
-?>
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -8,28 +5,28 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <h2 class="card-title">
-                            <i class="fas fa-shopping-basket"></i>  Ingredientes
+                            <i class="fas fa-shopping-basket"></i>  Productos
                         </h2>
                     </div>
                     <div class="card-body">
-                        <form id="frm_ingrediente" method="POST" autocomplete="off" onsubmit="return false">
+                        <form id="frm_productos" method="POST" autocomplete="off" onsubmit="return false">
                             <div class="form-group">
-                                <label for="nombre">Ingrediente</label>
-                                <input type="text" class="form-control" id="nom_ingredientes" name="nom_ingredientes">
+                                <label for="nombre">Nombre del Productos</label>
+                                <input type="text" class="form-control" id="nom_producto" name="nom_producto">
                             </div>
                             <div class="form-group">
-                                <label for="tipo">Tipo</label>
-                                <input type="number" class="form-control" id="cod_tipo" name="cod_tipo">
+                                <label for="tipo_producto">Tipo de Productos</label>
+                                <select class="form-control" name="tipo_producto" id="tipo_producto"></select>
                             </div>
                             <div class="form-group">
                                 <label for="marca">Marca</label>
-                                <input type="number" class="form-control" id="cod_marca" name="cod_marca">
+                                <select class="form-control" name="marca" id="marca"></select>
                             </div>
                             <div class="form-group">
-                                <label for="costo">Precio Unitario</label>
-                                <input type="text" class="form-control" id="costo_unitario_ingr" name="costo_unitario_ingr">
+                                <label for="precio">Precio Unitario</label>
+                                <input type="text" class="form-control" id="precio_unitario" name="precio_unitario">
                             </div>
-                            <button type="submit" class="btn btn-primary" id="btn_frm_ingr">Agregar</button>
+                            <button type="submit" class="btn btn-primary" id="btn_frm_productos">Agregar</button>
                         </form>
                     </div>
                 </div>
@@ -40,9 +37,9 @@
                       <tr>
                         <th scope="col">id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Tipo</th>
+                        <th scope="col">Tipo de Producto</th>
                         <th scope="col">Marca</th>
-                        <th scope="col">Costo Unitario</th>
+                        <th scope="col">Precio Unitario</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -52,5 +49,5 @@
         </div>
     </div>
 </section>
-<script src="app/controllers/ingrediente.js"></script>
-<script src="app/controllers/mostrarIngr.js"></script>
+<script src="app/controllers/productos.js"></script>
+<script src="app/controllers/mostrarProductos.js"></script>

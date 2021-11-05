@@ -5,27 +5,27 @@
                 <div class="card card-primary">
                     <div class="card-header">
                         <h2 class="card-title">
-                            <i class="fas fa-user-circle"></i>  Cargo
+                            <i class="fas fa-user-circle"></i>  Género
                         </h2>
                     </div>
                     <div class="card-body">
-                        <form id="frm_cargo" method="POST" autocomplete="off" onsubmit="return false">
+                        <form id="frm_genero" method="POST" autocomplete="off" onsubmit="return false">
                             <div class="form-group">
-                                <label for="cargo">Cargo</label>
-                                <input type="text" class="form-control" id="cargo" name="cargo">
+                                <label for="genero">Género</label>
+                                <input type="text" class="form-control" id="genero" name="genero">
                             </div>
 
-                            <button type="submit" class="btn btn-primary" id="btn_frm_cargo">Agregar</button>
+                            <button type="submit" class="btn btn-primary" id="btn_frm_genero">Agregar</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <table id="tablaComision" class="table">
+                <table id="tablaGenero" class="table">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">id</th>
-                        <th scope="col">Cargo</th>
+                        <th scope="col">Género</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -35,5 +35,5 @@
         </div>
     </div>
 </section>
-<script src="app/controllers/cargo.js"></script>
-<script src="app/controllers/mostrarCargo.js"></script>
+<script src="app/controllers/genero.js"></script>
+<script src="app/controllers/mostrarGenero.js"></script>
