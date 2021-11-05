@@ -3,7 +3,7 @@
     $objeto = new Conexion();
     $conexion = $objeto->Conectar();
 
-    $sql="SELECT * FROM `camareros` ORDER BY `cod_camarero` ASC";
+    $sql="SELECT * FROM `empleado` ORDER BY `cod_empleado` ASC";
     $resultado=$conexion->prepare($sql);
     $resultado->execute();
     $mostrar=$resultado->fetchAll(PDO::FETCH_ASSOC);

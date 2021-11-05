@@ -1,8 +1,8 @@
 <?php
 class Conexion{
     public static function Conectar(){
-        define('servidor','localhost:3306');
-        define('nombre_bd','bdrestaurante');
+        define('servidor','localhost:3308');
+        define('nombre_bd','bd_restaurante');
         define('usuario','root');
         define('password','');
         $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
