@@ -90,38 +90,6 @@ LOCK TABLES `comision_detalle` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `detalle_pedido`
---
-
-DROP TABLE IF EXISTS `detalle_pedido`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `detalle_pedido` (
-  `cod_detalle_pedido` int NOT NULL AUTO_INCREMENT,
-  `cod_pedidos` int NOT NULL,
-  `cod_platillo` int NOT NULL,
-  `cantidad` varchar(45) NOT NULL,
-  `cod_estado` int NOT NULL,
-  PRIMARY KEY (`cod_detalle_pedido`),
-  KEY `fk_detPedido_pedido_idx` (`cod_pedidos`),
-  KEY `fk_detPedido_platillo_idx` (`cod_platillo`),
-  KEY `fk_detPedido_estado_idx` (`cod_estado`),
-  CONSTRAINT `fk_detPedido_estado` FOREIGN KEY (`cod_estado`) REFERENCES `estado` (`cod_estado`),
-  CONSTRAINT `fk_detPedido_pedido` FOREIGN KEY (`cod_pedidos`) REFERENCES `pedidos` (`cod_pedidos`),
-  CONSTRAINT `fk_detPedido_platillo` FOREIGN KEY (`cod_platillo`) REFERENCES `platillo` (`cod_platillo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `detalle_pedido`
---
-
-LOCK TABLES `detalle_pedido` WRITE;
-/*!40000 ALTER TABLE `detalle_pedido` DISABLE KEYS */;
-/*!40000 ALTER TABLE `detalle_pedido` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `empleado`
 --
 
@@ -187,7 +155,7 @@ DROP TABLE IF EXISTS `genero`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `genero` (
   `cod_genero` int NOT NULL AUTO_INCREMENT,
-  `genero` varchar(15) NOT NULL,
+  `nom_genero` varchar(15) NOT NULL,
   PRIMARY KEY (`cod_genero`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -212,8 +180,9 @@ CREATE TABLE `inventario` (
   `cod_inventario` int NOT NULL AUTO_INCREMENT,
   `fecha_ingreso` date NOT NULL,
   `cod_productos` int NOT NULL,
-  `existencia_max` varchar(45) NOT NULL,
-  `existencia_min` varchar(45) NOT NULL,
+  `existencia_max` varchar(15) NOT NULL,
+  `existencia_min` varchar(15) NOT NULL,
+  `existencia_actual` varchar(15) NOT NULL,
   `cod_estado` int NOT NULL,
   PRIMARY KEY (`cod_inventario`),
   KEY `fk_inventario_productos_idx` (`cod_productos`),
@@ -241,7 +210,7 @@ DROP TABLE IF EXISTS `marca`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `marca` (
   `cod_marca` int NOT NULL AUTO_INCREMENT,
-  `marca` varchar(45) NOT NULL,
+  `nom_marca` varchar(45) NOT NULL,
   PRIMARY KEY (`cod_marca`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -279,6 +248,38 @@ CREATE TABLE `mesa` (
 LOCK TABLES `mesa` WRITE;
 /*!40000 ALTER TABLE `mesa` DISABLE KEYS */;
 /*!40000 ALTER TABLE `mesa` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido_detalle`
+--
+
+DROP TABLE IF EXISTS `pedido_detalle`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pedido_detalle` (
+  `cod_pedido_detalle` int NOT NULL AUTO_INCREMENT,
+  `cod_pedidos` int NOT NULL,
+  `cod_platillo` int NOT NULL,
+  `cantidad` varchar(15) NOT NULL,
+  `cod_estado` int NOT NULL,
+  PRIMARY KEY (`cod_pedido_detalle`),
+  KEY `fk_pedidos_pedido_idx` (`cod_pedidos`),
+  KEY `fk_pedido_platillo_idx` (`cod_platillo`),
+  KEY `fk_pedido_estado_idx` (`cod_estado`),
+  CONSTRAINT `fk_pedido_estado` FOREIGN KEY (`cod_estado`) REFERENCES `estado` (`cod_estado`),
+  CONSTRAINT `fk_pedido_platillo` FOREIGN KEY (`cod_platillo`) REFERENCES `platillo` (`cod_platillo`),
+  CONSTRAINT `fk_pedidos_pedido` FOREIGN KEY (`cod_pedidos`) REFERENCES `pedidos` (`cod_pedidos`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido_detalle`
+--
+
+LOCK TABLES `pedido_detalle` WRITE;
+/*!40000 ALTER TABLE `pedido_detalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedido_detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -417,10 +418,10 @@ DROP TABLE IF EXISTS `receta_catalogo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `receta_catalogo` (
   `cod_receta_catalogo` int NOT NULL AUTO_INCREMENT,
-  `nom_receta` varchar(45) NOT NULL,
-  `desc_receta` varchar(75) NOT NULL,
+  `nom_receta` varchar(75) NOT NULL,
+  `desc_receta` varchar(100) NOT NULL,
   PRIMARY KEY (`cod_receta_catalogo`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -429,6 +430,7 @@ CREATE TABLE `receta_catalogo` (
 
 LOCK TABLES `receta_catalogo` WRITE;
 /*!40000 ALTER TABLE `receta_catalogo` DISABLE KEYS */;
+INSERT INTO `receta_catalogo` VALUES (1,'tacos','tacos de carne de res');
 /*!40000 ALTER TABLE `receta_catalogo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -441,7 +443,7 @@ DROP TABLE IF EXISTS `tipo_platillo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipo_platillo` (
   `cod_tipo_platillo` int NOT NULL AUTO_INCREMENT,
-  `tipo_platillo` varchar(45) NOT NULL,
+  `nom_tipo_platillo` varchar(45) NOT NULL,
   PRIMARY KEY (`cod_tipo_platillo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -464,7 +466,7 @@ DROP TABLE IF EXISTS `tipo_producto`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipo_producto` (
   `cod_tipo_producto` int NOT NULL AUTO_INCREMENT,
-  `tipo_producto` varchar(45) NOT NULL,
+  `nom_tipo_producto` varchar(45) NOT NULL,
   `desc_tipo_producto` varchar(45) NOT NULL,
   PRIMARY KEY (`cod_tipo_producto`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -491,7 +493,7 @@ CREATE TABLE `unidad` (
   `nom_unidad` varchar(45) NOT NULL,
   `abrev_unidad` varchar(45) NOT NULL,
   PRIMARY KEY (`cod_unidad`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -500,6 +502,7 @@ CREATE TABLE `unidad` (
 
 LOCK TABLES `unidad` WRITE;
 /*!40000 ALTER TABLE `unidad` DISABLE KEYS */;
+INSERT INTO `unidad` VALUES (1,'libra','lb'),(2,'kilogramo','kg');
 /*!40000 ALTER TABLE `unidad` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -512,4 +515,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-11-03 14:08:21
+-- Dump completed on 2021-11-04 18:29:01
