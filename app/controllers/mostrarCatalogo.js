@@ -1,7 +1,7 @@
 $(document).ready(function(){
     $('#tablaCat').DataTable({
         ajax : {
-            url: 'app/models/mostrarCat.php',
+            url: 'app/models/mostrarCatalogo.php',
             dataSrc:''
         },
         columns :[
