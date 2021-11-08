@@ -1,15 +1,22 @@
+<?php
+    $con = mysqli_connect("localhost:3308","root","");
+    if($con){
+        mysqli_select_db($con, "bd_restaurante");
+        mysqli_query($link,"SET NAMES 'utf8'");
+    }
+?>
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-5">
                 <div class="card card-primary">
                     <div class="card-header">
                         <h2 class="card-title">
-                            <i class="fas fa-user-circle"></i>  Camareros
+                            <i class="fas fa-user-circle"></i>  Empleados
                         </h2>
                     </div>
                     <div class="card-body">
-                        <form id="frm_cam" method="POST" autocomplete="off" onsubmit="return false">
+                        <form id="frm_empleado" method="POST" autocomplete="off" onsubmit="return false">
                             <div class="form-group">
                                 <label for="nombre">Nombres</label>
                                 <input type="text" class="form-control" id="nombres" name="nombres">
@@ -24,7 +31,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="genero">Genero</label>
-                                <select class="form-control" name="genero" id="genero"></select>
+                                <select class="form-control" name="genero" id="genero">
+                                    <option value="" selected disabled>Seleccione una opción</option>
+                                    <?php
+                                        $v =mysqli_query($con, "SELECT * FROM genero");
+                                        while($generos = mysqli_fetch_row($v)){
+                                    ?>
+                                        <option value="<?phph echo $genero[0] ?>"><?php echo $generos[1] ?></option>
+                                    <?php }?>
+                                    
+                                    
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="fecha_nacimiento">Fecha de nacimiento</label>
@@ -32,24 +49,27 @@
                             </div>
                             <div class="form-group">
                                 <label for="direccion">Dirección</label>
-                                <textarea name="direccion" id="direccion" cols="30" rows="10"></textarea>
+                                <textarea name="direccion" id="direccion" cols="50" rows=""></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="cargo">Cargo</label>
-                                <select class="form-control" name="cargo" id="cargo"></select>
+                                <select class="form-control" name="cargo" id="cargo">
+                                    <option value="" selected disabled>Seleccione una opción</option>
+                                    
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="salario">Salario</label>
                                 <input type="text" class="form-control" id="salario" name="salario">
                             </div>
 
-                            <button type="submit" class="btn btn-primary" id="btn_frm_estado">Agregar</button>
+                            <button type="submit" class="btn btn-primary" id="btn_frm_empleado">Agregar</button>
                         </form>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <table id="tablaCam" class="table">
+                <table id="tablaEmpleado" class="table">
                     <thead class="thead-dark">
                       <tr>
                         <th scope="col">id</th>
@@ -70,5 +90,5 @@
         </div>
     </div>
 </section>
-<script src="app/controllers/camarero.js"></script>
-<script src="app/controllers/mostrarCam.js"></script>
+<script src="app/controllers/emleado.js"></script>
+<script src="app/controllers/mostrarEmpleado.js"></script>
