@@ -14,6 +14,15 @@
     VALUES ('$nombres', '$apellidos', '$edad', '$cod_genero', '$fecha_nacimiento', '$direccion', '$cod_cargo','$salario')";
 
 
+    /*$query="SELECT cod_genero, nom_genero FROM genero ORDER BY cod_genero";
+    $result = mysql_query($query)
+            or die("Ocurrio un error en la consulta SQL");
+    mysql_close();
+    echo '<option value="0">Seleccionar</option>';
+    while (($fila = mysql_fetch_array($result)) != NULL) {
+        echo '<option value="'.$fila["cod_genero"].'">'.$fila["nom_genero"].'</option>';
+    }*/
+
     echo mysqli_query($conexion,$sql);
 
 ?>
