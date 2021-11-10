@@ -1,0 +1,111 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-user-circle"></i>  Cargo
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_cargo" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header text-center">
+                                            <h4 class="modal-title w-100 font-weight-bold">Agregue Nuevo Cargo</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body mx-3">
+                                            <div class="md-form mb-5">
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                    <div class="input-group-text"><i class="fas fa-user-tag"></i></div>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="cargo" placeholder="Cargo">
+                                                </div>
+                                                <div class="modal-footer d-flex justify-content-">
+                                                    <button type="submit" class="btn btn-success" id="btn_frm_cargo">Guardar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                            <div class="text-center">
+                                <a href="" class="btn btn-success btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm"><i class="fa fa-plus"></i> Agregar</a>
+                            </div>
+                        
+                    </div>
+                    <div class="col-md-12">
+                        <table id="tablaCam" class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Cargo</th>
+                                <th scope="col">Acción</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-user-circle"></i>  Comisión
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-success" id="btn_frm_com"><i class="fa fa-plus"></i> Agregar</button>
+                        
+                    </div>
+                    <div class="col-md-12">
+                        <table id="tablaCam" class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Comisión</th>
+                                <th scope="col">Acción</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-user-circle"></i>  Género
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-success" id="btn_frm_gen"><i class="fa fa-plus"></i> Agregar</button>
+                        
+                    </div>
+                    <div class="col-md-12">
+                        <table id="tablaCam" class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Género</th>
+                                <th scope="col">Acción</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/general.js"></script>

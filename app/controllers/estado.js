@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    $('#btn_frm_catalogo').click(function(){
+    $('#btn_frm_estado').click(function(){
         console.log("Entro a la funcion");
-        var datos = $('#frm_catalogo').serialize();
+        var datos = $('#frm_estado').serialize();
         /*alert(datos);
         return false;*/
         $.ajax({
             type: "POST",
-            url: "app/models/receta_catalogo.php",
+            url: "app/models/estado.php",
             data: datos,
             success:function(response){
                 if(response == 1) {

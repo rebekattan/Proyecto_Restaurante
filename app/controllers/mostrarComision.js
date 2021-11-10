@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    $('#tablaMarca').DataTable({
+    $('#tablaComision').DataTable({
         ajax : {
-            url: 'app/models/mostrarMarca.php',
+            url: 'app/models/mostrarComision.php',
             dataSrc:''
         },
         columns :[
-            {data: 'cod_marca'},
-            {data: 'nom_marca'},
+            {data: 'cod_comision'},
+            {data: 'comision'},
             {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
         ]
     })

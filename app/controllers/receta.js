@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    $('#btn_frm_ingr').click(function(){
+    $('#btn_frm_receta').click(function(){
         console.log("Entro a la funcion");
-        var datos = $('#frm_ingrediente').serialize();
+        var datos = $('#frm_receta').serialize();
         /*alert(datos);
         return false;*/
         $.ajax({
             type: "POST",
-            url: "app/models/ingrediente.php",
+            url: "app/models/receta.php",
             data: datos,
             success:function(response){
                 if(response == 1) {

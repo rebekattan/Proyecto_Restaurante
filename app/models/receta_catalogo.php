@@ -1,5 +1,5 @@
 <?php
-    $conexion=mysqli_connect('localhost:3308','root','','bd_restaurante');
+    $conexion=mysqli_connect('localhost:3306','root','','bdrestaurante');
 
     $nom_receta =$_POST['nom_receta'];
     $desc_receta= $_POST['desc_receta'];

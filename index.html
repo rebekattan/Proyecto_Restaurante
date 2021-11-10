@@ -59,7 +59,7 @@
             <!-- Brand Logo -->
             <a href="index.html" class="brand-link">
                 <img src="resources/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Gráficas PW02</span>
+                <span class="brand-text font-weight-light">El Restaurante</span>
             </a>
 
             <!-- Sidebar -->
@@ -70,7 +70,7 @@
                         <img src="resources/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Carlos Tamayo</a>
+                        <a href="#" class="d-block">Gerente</a>
                     </div>
                 </div>
 
@@ -81,6 +81,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <!--MENU CRUD-->
                         <li class="nav-item menu-open">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -91,57 +92,63 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/ajax.html')" class="nav-link ">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/cargo.html')" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Prueba Ajax</p>
-                                    </a>
-                                </li>
-                                <!--<li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/calc.html')" class="nav-link ">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Calculadora</p>
+                                        <p>Cargo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/circulo.html')" class="nav-link">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/comision.html')" class="nav-link ">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>&Aacuterea de Círculo</p>
+                                        <p>Comisión</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/dash.html')" class="nav-link">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/comision_detalle.html')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard</p>
+                                        <p>Comisión detalle</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/donut.html')" class="nav-link">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/estado.html')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>C3.js demo</p>
+                                        <p>Estado</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/parcial2.html')" class="nav-link">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/genero.html')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Parcial 2</p>
-                                    </a>
-                                </li>-->
-                                <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/chef.html')" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Chefs</p>
+                                        <p>Género</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/camarero.html')" class="nav-link">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/inventario.html')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Camareros</p>
+                                        <p>Inventario</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/tipo.html')" class="nav-link">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/mesa.html')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Tipo</p>
+                                        <p>Mesa</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/empleado.html')" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Empleados</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/tipo_producto.html')" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tipo Producto</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/tipo_platillo.html')" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Tipo Platillo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -157,15 +164,33 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/ingrediente.html')" class="nav-link">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/productos.html')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Ingredientes</p>
+                                        <p>Productos</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/catalogo.html')" class="nav-link">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/platillo.html')" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Catálogo</p>
+                                        <p>Platillo</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/pedidos.html')" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Pedidos</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/pedido_detalle.html')" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Pedido Detalle</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/receta_catalogo.html')" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Catálogo de Recetas</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -176,6 +201,26 @@
                                 </li>
                             </ul>
                         </li>
+                <!--FIN MENU CRUD-->
+                <!--MENU GRAFICAS-->
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Gráficas
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="javascript:void(0)" onclick="cargar_pantalla('app/views/cargo.html')" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Cargo</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!--FIN MENU GRAFICAS-->
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -190,7 +235,7 @@
         <!-- /.content-wrapper -->
 
         <footer class="main-footer">
-            <strong>Copyright &copy; 2021 <a href="#">Gráficas PW02</a>.</strong> Todos los Derechos Reservados.
+            <strong>Copyright &copy; 2021 <a href="#">Programación Web II</a>.</strong> Todos los Derechos Reservados. Creado por: Rebecca Kattán, Shelimber Chinchilla, Oscar Avelar y Carlos Tamayo.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> Beta
             </div>

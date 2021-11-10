@@ -1,13 +1,14 @@
 $(document).ready(function(){
-    $('#tablaTipo').DataTable({
+    $('#tablaTipoProducto').DataTable({
         ajax : {
             url: 'app/models/mostrarTipo.php',
             dataSrc:''
         },
         columns :[
-            {data: 'cod_tipo'},
-            {data: 'nom_tipo'},
-            {data: 'desc_tipo'}
+            {data: 'cod_tipo_producto'},
+            {data: 'nom_tipo_producto'},
+            {data: 'desc_tipo_producto'},
+            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
         ]
     })
 });

@@ -1,5 +1,5 @@
 <?php
-    $conexion=mysqli_connect('localhost:3308','root','','bd_restaurante');
+    $conexion=mysqli_connect('localhost:3306','root','','bdrestaurante');
 
     $nom_unidad =$_POST['nom_unidad'];
     $abrev_unidad= $_POST['abrev_unidad'];

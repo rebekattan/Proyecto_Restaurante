@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    $('#btn_frm_tipo').click(function(){
+    $('#btn_frm_productos').click(function(){
         console.log("Entro a la funcion");
-        var datos = $('#frm_tipo').serialize();
+        var datos = $('#frm_productos').serialize();
         /*alert(datos);
         return false;*/
         $.ajax({
             type: "POST",
-            url: "app/models/tipo.php",
+            url: "app/models/productos.php",
             data: datos,
             success:function(response){
                 if(response == 1) {
