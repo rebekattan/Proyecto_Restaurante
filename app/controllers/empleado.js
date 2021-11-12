@@ -1,4 +1,26 @@
 $(document).ready(function(){
+    let $genero = document.querySelector('#genero')
+    
+    function cargarGenero(){
+        $.ajax({
+            type: "GET",
+            url: "app/models/mostrarGenero.php",
+            success:function(response){
+                const generos = JSON.parse(response)
+                
+                let template = '<option class="form-control" selected disabled>Seleccione una opción</option>'
+                
+                generos.forEach(genero => {
+                    template += `<option value="${genero.cod_genero}">${genero.nom_genero}</option>`
+                })
+    
+                $genero.innerHTML = template;
+            }
+        });
+    }
+
+    cargarGenero();
+    
     $(function(){
         $('input[name="fecha_nacimiento"]').daterangepicker({
             singleDatePicker: true,
@@ -15,6 +37,7 @@ $(document).ready(function(){
             }
         });
     });
+    
     $('#btn_frm_empleado').click(function(){
         console.log("Entro a la funcion");
         var datos = $('#frm_empleado').serialize();
@@ -37,4 +60,5 @@ $(document).ready(function(){
     })
     
 });
+
 
