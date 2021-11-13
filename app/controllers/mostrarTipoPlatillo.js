@@ -1,12 +1,12 @@
 $(document).ready(function(){
-    $('#tablaMarca').DataTable({
+    $('#tablaTipoPlatillo').DataTable({
         ajax : {
-            url: 'app/models/mostrarMarca.php',
+            url: 'app/models/mostrarTipoPlatillo.php',
             dataSrc:''
         },
         columns :[
-            {data: 'cod_marca'},
-            {data: 'nom_marca'},
+            {data: 'cod_tipo_platillo'},
+            {data: 'nom_tipo_platillo'},
             {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
         ]
     })

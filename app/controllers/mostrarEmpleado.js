@@ -13,7 +13,8 @@ $(document).ready(function(){
             {data: 'fecha_nacimiento'},
             {data: 'direccion'},
             {data: 'cod_cargo'},
-            {data: 'salario'}
+            {data: 'salario'},
+            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
         ]
     })
 });

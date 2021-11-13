@@ -1,13 +1,15 @@
 $(document).ready(function(){
-    $('#tablaMarca').DataTable({
+    
+    $('#tablaGenero').DataTable({
         ajax : {
-            url: 'app/models/mostrarMarca.php',
+            url: 'app/models/mostrarGenero.php',
             dataSrc:''
         },
         columns :[
-            {data: 'cod_marca'},
-            {data: 'nom_marca'},
+            {data: 'cod_genero'},
+            {data: 'nom_genero'},
             {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
         ]
     })
 });
+
