@@ -1,7 +1,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="card card-primary">
                     <div class="card-header">
                         <h2 class="card-title">
@@ -10,45 +10,58 @@
                     </div>
                     <div class="card-body">
                         <form id="frm_empleado" method="POST" autocomplete="off" onsubmit="return false">
-                            <div class="form-group">
-                                <label for="nombre">Nombres</label>
-                                <input type="text" class="form-control" id="nombres" name="nombres">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="nombres" placeholder="Nombres">
                             </div>
-                            <div class="form-group">
-                                <label for="apellido">Apellidos</label>
-                                <input type="text" class="form-control" id="apellidos" name="apellidos">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-user"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
                             </div>
-                            <div class="form-group">
-                                <label for="apellido">Edad</label>
-                                <input type="text" class="form-control" id="edad" name="edad">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="far fa-calendar"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="edad" placeholder="Edad">
                             </div>
-                            <div class="form-group">
-                                <label for="genero">Genero</label>
-                                <select class="form-control" name="genero" id="genero">
-                                    <option value="" selected disabled>Seleccione una opción</option>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-venus-mars"></i></div>
+                                </div>
+                                <select class="form-control" name="genero" id="genero" placeholder="Género">
                                     
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="fecha_nacimiento">Fecha de nacimiento</label>
-                                <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-calendar"></i></div>
+                                </div>
+                                <input type="text" class="form-control" name="fecha_nacimiento" id="fecha_nacimiento" placeholder="Fecha de Nacimiento">
                             </div>
-                            <div class="form-group">
-                                <label for="direccion">Dirección</label><br>
-                                <textarea name="direccion" id="direccion" cols="50" rows=""></textarea>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="far fa-address-card"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="direccion" placeholder="Dirección">
                             </div>
-                            <div class="form-group">
-                                <label for="cargo">Cargo</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-user-tag"></i></div>
+                                </div>
                                 <select class="form-control" name="cargo" id="cargo">
-                                    <option value="" selected disabled>Seleccione una opción</option>
                                     
                                 </select>
                             </div>
-                            <div class="form-group">
-                                <label for="salario">Salario</label>
-                                <input type="text" class="form-control" id="salario" name="salario">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="fas fa-hand-holding-usd"></i></div>
+                                </div>
+                                <input type="text" class="form-control" id="salario" placeholder="Salario">
                             </div>
-
                             <button type="submit" class="btn btn-primary" id="btn_frm_empleado">Agregar</button>
                         </form>
                     </div>
@@ -67,6 +80,7 @@
                         <th scope="col">Dirección</th>
                         <th scope="col">Cargo</th>
                         <th scope="col">Salario</th>
+                        <th scope="col">Acciones</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -76,5 +90,5 @@
         </div>
     </div>
 </section>
-<script src="app/controllers/emleado.js"></script>
+<script src="app/controllers/empleado.js"></script>
 <script src="app/controllers/mostrarEmpleado.js"></script>
