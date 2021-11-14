@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    let $genero = document.querySelector('#genero');
-    let $cargo = document.querySelector('#cargo');
+    let $genero = document.querySelector('#cod_genero');
+    let $cargo = document.querySelector('#cod_cargo');
     
     function cargarGenero(){
         $.ajax({
