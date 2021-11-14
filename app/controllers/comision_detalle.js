@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    let $empleado = document.querySelector('#empleado');
-    let $comision = document.querySelector('#comision');
+    let $empleado = document.querySelector('#cod_empleado');
+    let $comision = document.querySelector('#cod_comision');
     
     function cargarEmpleado(){
         $.ajax({
