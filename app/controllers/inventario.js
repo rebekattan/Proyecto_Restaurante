@@ -1,6 +1,6 @@
 $(document).ready(function(){
     let $productos = document.querySelector('#cod_productos');
-    let $estado = document.querySelector('#cod_estado');
+    let $unidad = document.querySelector('#cod_unidad');
     
     function cargarProducto(){
         $.ajax({
@@ -20,42 +20,45 @@ $(document).ready(function(){
         });
     }
 
-    function cargarEstado(){
+    function cargarUnidad(){
         $.ajax({
             type: "GET",
-            url: "app/models/mostrarEstado.php",
+            url: "app/models/mostrarUnidad.php",
             success:function(response){
-                const estados = JSON.parse(response)
+                const unidades = JSON.parse(response)
                 
                 let template = '<option class="form-control" selected disabled>Seleccione una opción</option>'
                 
-                estados.forEach(estado => {
-                    template += `<option value="${estado.cod_estado}">${estado.estado}</option>`
+                unidades.forEach(unidad => {
+                    template += `<option value="${unidad.cod_unidad}">${unidad.nom_unidad}</option>`
                 })
     
-                $estado.innerHTML = template;
+                $unidad.innerHTML = template;
             }
         });
     }
 
     cargarProducto();
-    cargarEstado();
+    cargarUnidad();
     
     $('#btn_frm_inventario').click(function(){
         console.log("Entro a la funcion");
         var datos = $('#frm_inventario').serialize();
-        /*alert(datos);
-        return false;*/
+        console.log(datos);
         $.ajax({
             type: "POST",
             url: "app/models/inventario.php",
             data: datos,
             success:function(response){
-                if(response == 1) {
+                console.log(response.respuesta);
+                if(response.success==true) {
                     alert("Agregado con exito");
                 } else {
                     alert("No se agregó");
                 }
+            },
+            error: function(){
+                swal('¡Error!','Error de ejecución del Ajax', 'error');
             }
         });
 

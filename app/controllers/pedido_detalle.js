@@ -71,11 +71,15 @@ $(document).ready(function(){
             url: "app/models/pedido_detalle.php",
             data: datos,
             success:function(response){
-                if(response == 1) {
+                console.log(response.respuesta);
+                if(response.success) {
                     alert("Agregado con exito");
                 } else {
                     alert("No se agregó");
                 }
+            },
+            error: function(){
+                swal('¡Error!','Error de ejecución del Ajax', 'error');
             }
         });
 

@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    let $tipo_producto = document.querySelector('#tipo_producto');
-    let $marca = document.querySelector('#marca');
+    let $tipo_producto = document.querySelector('#cod_tipo_producto');
+    let $marca = document.querySelector('#cod_marca');
     
     function cargarTipoProducto(){
         $.ajax({
@@ -45,18 +45,21 @@ $(document).ready(function(){
     $('#btn_frm_productos').click(function(){
         console.log("Entro a la funcion");
         var datos = $('#frm_productos').serialize();
-        /*alert(datos);
-        return false;*/
+        console.log(datos);
         $.ajax({
             type: "POST",
             url: "app/models/productos.php",
             data: datos,
             success:function(response){
-                if(response == 1) {
+                console.log(response.respuesta);
+                if(response.success) {
                     alert("Agregado con exito");
                 } else {
                     alert("No se agregó");
                 }
+            },
+            error: function(){
+                swal('¡Error!','Error de ejecución del Ajax', 'error');
             }
         });
 

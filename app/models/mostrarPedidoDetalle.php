@@ -3,10 +3,9 @@
     $objeto = new Conexion();
     $conexion = $objeto->Conectar();
 
-    $sql="SELECT p.cod_pedido_detalle, pd.cod_pedidos, 
-    pt.nom_platillo AS cod_platillo , pd.cantidad, e.estado AS cod_estado 
+    $sql="SELECT pd.cod_pedido_detalle, pd.cod_pedidos, 
+    pd.cod_platillo , pd.cantidad, e.estado AS cod_estado 
     FROM pedido_detalle pd
-    INNER JOIN platillo pt ON pd.cod_platillo=pt.cod_platillo 
     INNER JOIN estado e ON pd.cod_estado=e.cod_estado 
     ORDER BY cod_pedido_detalle ASC";
 

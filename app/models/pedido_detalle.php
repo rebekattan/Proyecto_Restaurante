@@ -6,9 +6,18 @@
     $cantidad =$_POST['cantidad'];
     $cod_estado =$_POST['cod_estado'];
 
-    $sql = "INSERT INTO `pedido_detalle` (`cod_pedidos`, `cod_platillo`, 'cantidad', 'cod_estado') 
+    $sql = "INSERT INTO pedido_detalle (`cod_pedidos`, `cod_platillo`, `cantidad`, `cod_estado`) 
     VALUES ('$cod_pedidos', '$cod_platillo', '$cantidad', '$cod_estado')";
 
-    echo mysqli_query($conexion,$sql);
+    $resultado= mysqli_query($conexion,$sql);
+
+    if($resultado==true){
+
+        $response=array('success'=>true, 'respuesta'=>$resultado);
+    }else{
+        $response=array('success'=>false, 'error'=>'No fue posible insertar datos de la bd', 'respuesta'=>$resultado);
+    }
+
+    echo json_encode($response);
 
 ?>

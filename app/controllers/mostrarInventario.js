@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    $('#tablaIventario').DataTable({
+    $('#tablaInventario').DataTable({
         ajax : {
-            url: 'app/models/mostrarIventario.php',
+            url: 'app/models/mostrarInventario.php',
             dataSrc:''
         },
         columns :[
@@ -11,7 +11,7 @@ $(document).ready(function(){
             {data: 'existencia_max'},
             {data: 'existencia_min'},
             {data: 'existencia_actual'},
-            {data: 'cod_estado'},
+            {data: 'cod_unidad'},
             {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
         ]
     })

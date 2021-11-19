@@ -7,9 +7,18 @@
     $cantidad_personas =$_POST['cantidad_personas'];
     $notas =$_POST['notas'];
 
-    $sql = "INSERT INTO `pedidos` (`cod_mesa`, `fecha_pedido`, 'cod_empleado', 'cantidad_personas', 'notas') 
+    $sql = "INSERT INTO pedidos (`cod_mesa`, `fecha_pedido`, `cod_empleado`, `cantidad_personas`, `notas`) 
     VALUES ('$cod_mesa', '$fecha_pedido', '$cod_empleado', '$cantidad_personas', '$notas')";
 
-    echo mysqli_query($conexion,$sql);
+    $resultado= mysqli_query($conexion,$sql);
+
+    if($resultado==true){
+
+        $response=array('success'=>true, 'respuesta'=>$resultado);
+    }else{
+        $response=array('success'=>false, 'error'=>'No fue posible insertar datos de la bd', 'respuesta'=>$resultado);
+    }
+
+    echo json_encode($response);
 
 ?>
