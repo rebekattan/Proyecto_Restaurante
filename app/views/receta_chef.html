@@ -1,0 +1,51 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-user-circle"></i>  Receta Chef
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_receta_chef" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="receta">Receta</label>
+                                <select class="form-control" name="cod_receta_catalogo" id="cod_receta_catalogo"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="empleado">Empleado</label>
+                                <select class="form-control" name="cod_empleado" id="cod_empleado"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha_asignada">Fecha Asignada</label>
+                                <input type="date" class="form-control" name="fecha_asignada" id="fecha_asignada">
+                            </div>
+                            
+
+                            <button type="submit" class="btn btn-primary" id="btn_frm_receta_chef">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaRecetaChef" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Receta</th>
+                        <th scope="col">Empleado</th>
+                        <th scope="col">Fecha Asignada</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/receta_chef.js"></script>
+<script src="app/controllers/mostrarRecetaChef.js"></script>
