@@ -5,7 +5,7 @@ $(document).ready(function(){
     function cargarEmpleado(){
         $.ajax({
             type: "GET",
-            url: "app/models/mostrarEmpleado.php",
+            url: "app/models/mostrarCamarero.php",
             success:function(response){
                 const empleados = JSON.parse(response)
                 
