@@ -5,7 +5,7 @@ $(document).ready(function(){
     function cargarMesa(){
         $.ajax({
             type: "GET",
-            url: "app/models/mostrarMesa.php",
+            url: "app/models/mostrarMesaDis.php",
             success:function(response){
                 const mesas = JSON.parse(response)
                 

@@ -10,9 +10,14 @@
     $cod_cargo= $_REQUEST['cod_cargo'];
     $salario = $_REQUEST['salario'];
 
+    $fecha = new DateTime("$fecha_nacimiento");
+    $hoy = new DateTime();
+    $edad1 = $hoy->diff($fecha);
+    $edad_cal= $edad1->y;
+
     $sql = "INSERT INTO empleado (`nombres`, `apellidos`, `edad`,`cod_genero`, `fecha_nacimiento`, 
     `direccion`, `cod_cargo`,`salario`) 
-    VALUES ('$nombres', '$apellidos', '$edad', '$cod_genero', '$fecha_nacimiento', '$direccion', 
+    VALUES ('$nombres', '$apellidos', '$edad_cal', '$cod_genero', '$fecha_nacimiento', '$direccion', 
     '$cod_cargo','$salario')";
 
     $resultado= mysqli_query($conexion,$sql);
