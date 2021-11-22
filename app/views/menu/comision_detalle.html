@@ -1,0 +1,46 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-user-circle"></i>  Comisión Detalle
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_comision_detalle" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="empleado">Empleado</label>
+                                <select class="form-control" name="cod_empleado" id="cod_empleado"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="comision">Comisión</label>
+                                <select class="form-control" name="cod_comision" id="cod_comision"></select>
+                            </div>
+                            
+
+                            <button type="submit" class="btn btn-primary" id="btn_frm_comision_detalle">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaComisionDetalle" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Empleado</th>
+                        <th scope="col">Comisión</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/menu/comision_detalle.js"></script>
+<script src="app/controllers/menu/mostrarComisionDetalle.js"></script>

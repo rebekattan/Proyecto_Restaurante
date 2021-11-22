@@ -1,0 +1,40 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-copyright"></i>  Marcas
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_marca" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="nombre">Marca</label>
+                                <input type="text" class="form-control" id="nom_marca" name="nom_marca">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="btn_frm_marca">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaMarca" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/menu/marca.js"></script>
+<script src="app/controllers/menu/mostrarMarca.js"></script>

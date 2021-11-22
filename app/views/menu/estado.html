@@ -1,0 +1,40 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-user-circle"></i>  Estado
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_estado" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="estado">Estado</label>
+                                <input type="text" class="form-control" id="estado" name="estado">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="btn_frm_estado">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaEstado" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Estado</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/menu/estado.js"></script>
+<script src="app/controllers/menu/mostrarEstado.js"></script>

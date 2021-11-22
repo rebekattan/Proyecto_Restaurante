@@ -1,0 +1,60 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-shopping-basket"></i>  Pedidos
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_pedidos" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="cod_mesa">Mesa</label>
+                                <select class="form-control" name="cod_mesa" id="cod_mesa"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha_pedido">Fecha de Pedido</label>
+                                <input type="date" class="form-control" id="fecha_pedido" name="fecha_pedido">
+                            </div>
+                            <div class="form-group">
+                                <label for="cod_empleado">Empleado</label>
+                                <select class="form-control" name="cod_empleado" id="cod_empleado"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cantidad_personas">Cantidad de Personas</label>
+                                <input type="text" class="form-control" id="cantidad_personas" name="cantidad_personas">
+                            </div>
+                            <div class="form-group">
+                                <label for="notas">Notas</label>
+                                <input type="text" class="form-control" id="notas" name="notas">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="btn_frm_pedidos">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaPedidos" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Mesa</th>
+                        <th scope="col">Fecha de Pedido</th>
+                        <th scope="col">Empleado</th>
+                        <th scope="col">Cantidad de Personas</th>
+                        <th scope="col">Notas</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/menu/pedidos.js"></script>
+<script src="app/controllers/menu/mostrarPedidos.js"></script>

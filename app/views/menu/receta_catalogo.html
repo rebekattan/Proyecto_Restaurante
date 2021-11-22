@@ -1,0 +1,45 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-shopping-basket"></i>  Catálogo de Recetas
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_catalogo" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="nombre">Receta</label>
+                                <input type="text" class="form-control" id="nom_receta" name="nom_receta">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción</label>
+                                <input type="text" class="form-control" id="desc_receta" name="desc_receta">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="btn_frm_catalogo">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <table id="tablaCat" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/menu/receta_catalogo.js"></script>
+<script src="app/controllers/menu/mostrarCatalogo.js"></script>

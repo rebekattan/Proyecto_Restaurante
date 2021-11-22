@@ -1,0 +1,65 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-shopping-basket"></i>  Inventario
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_inventario" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="fecha_ingreso">Fecha de Ingreso</label>
+                                <input type="date" class="form-control" id="fecha_ingreso" name="fecha_ingreso">
+                            </div>
+                            <div class="form-group">
+                                <label for="cod_productos">Producto</label>
+                                <select class="form-control" name="cod_productos" id="cod_productos"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="existencia_max">Existencia Máxima</label>
+                                <input type="text" class="form-control" id="existencia_max" name="existencia_max">
+                            </div>
+                            <div class="form-group">
+                                <label for="existencia_min">Existencia Mínima</label>
+                                <input type="text" class="form-control" id="existencia_min" name="existencia_min">
+                            </div>
+                            <div class="form-group">
+                                <label for="existencia_actual">Existencia Actual</label>
+                                <input type="text" class="form-control" id="existencia_actual" name="existencia_actual">
+                            </div>
+                            <div class="form-group">
+                                <label for="cod_estado">Unidades</label>
+                                <select class="form-control" name="cod_unidad" id="cod_unidad"></select>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="btn_frm_inventario">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaInventario" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Fecha de Ingreso</th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Existencia Máxima</th>
+                        <th scope="col">Existencia Mínima</th>
+                        <th scope="col">Existencia Actual</th>
+                        <th scope="col">Unidades</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/menu/inventario.js"></script>
+<script src="app/controllers/menu/mostrarInventario.js"></script>
