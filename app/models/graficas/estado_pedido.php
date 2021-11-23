@@ -29,9 +29,7 @@
         unset($pedidos, $datos, $resultado);
 
     }else{
-        $response=array('success'=>false, 'error'=>'No fue posible extraer datos de la base de datos', 'datos'=>$datos,
-        'pedidos'=>$pedidos,
-        'total'=>mysqli_num_rows($resultado));
+        $response=array('success'=>false, 'error'=>'No fue posible extraer datos de la base de datos');
     }
 
     echo json_encode($response);
