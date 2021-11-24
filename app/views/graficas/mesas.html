@@ -1,0 +1,53 @@
+<section class="container">
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-4">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3 id="total_mesa_d">1</h3>
+                        <p>Total de mesas disponibles</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-checkmark"></i>
+                    </div>
+                    <a href="javascript:void(0)" class="small-box-footer" onclick="llamar_detalle()">
+                    Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3 id="total_mesa_o">5</h3>
+                        <p>Total de mesas ocupadas</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-close"></i>
+                    </div>
+                    <a href="javascript:void(0)" class="small-box-footer" onclick="llamar_detalle()">
+                    Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h3 id="total_mesa_l">5</h3>
+                        <p>Total de mesas que necesitan limpieza</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-close"></i>
+                    </div>
+                    <a href="javascript:void(0)" class="small-box-footer" onclick="llamar_detalle()">
+                    Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-4">
+                <canvas id="g_estado_mesa" width="90" height="90"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="app/controllers/graficas/mesas.js"></script>
+

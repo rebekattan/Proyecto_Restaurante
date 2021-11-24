@@ -1,0 +1,40 @@
+<section class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="small-box bg-success">
+                    <div class="inner">
+                        <h3 id="total_pedido_e">1</h3>
+                        <p>Total de pedidos entregados</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-clipboard"></i>
+                    </div>
+                    <a href="javascript:void(0)" class="small-box-footer" onclick="llamar_detalle()">
+                    Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="small-box bg-danger">
+                    <div class="inner">
+                        <h3 id="total_pedido_p">11</h3>
+                        <p>Total de pedidos pendientes</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-clipboard"></i>
+                    </div>
+                    <a href="javascript:void(0)" class="small-box-footer" onclick="llamar_detalle()">
+                    Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-4">
+                <canvas id="g_estado_pedido" width="90" height="90"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="app/controllers/graficas/pedidos.js"></script>
+
