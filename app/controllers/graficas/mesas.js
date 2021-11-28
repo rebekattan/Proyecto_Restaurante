@@ -1,6 +1,41 @@
 $(document).ready(function () {
     estado_mesa();
-    grafica_estado_mesa();
+    $("#calendario").daterangepicker({
+        "locale":{
+            "format":"DD/MM/YYYY",
+            "separator":" - ",
+            "applyLabel": "Aplicar",
+            "cancelLabel": "Cancelar",
+            "daysOfWeek":[
+                "Dom",
+                "Lun",
+                "Mar",
+                "Mie",
+                "Jue",
+                "Vie",
+                "Sab"
+            ],
+            "monthNames":[
+                "Enero",
+                "Febrero",
+                "Marzo",
+                "Abril",
+                "Mayo",
+                "Junio",
+                "Julio",
+                "Agosto",
+                "Septiembre",
+                "Octubre",
+                "Noviembre",
+                "Diciembre"
+            ]
+        }
+    });
+
+    $("#btn_filtro_mesa").click(function(){
+        grafica_personas_mesa(); 
+    });
+    grafica_estado_mesa();   
 });
 
 function estado_mesa(){
@@ -82,11 +117,11 @@ function grafica_estado_mesa() {
                         "options": {
                             "title": {
                                 "display": true,
-                                "text": '# Total Estado de Pedidos'
+                                "text": '# Total Estado de Mesas'
                             }
                         }
                     })
-
+                    
             } else{
                 swal('¡Error!', response.error, 'error')
             }
@@ -98,5 +133,90 @@ function grafica_estado_mesa() {
     }); 
 }
 
+function grafica_personas_mesa() {
+    var datos=[];
+    var labels=[];
+
+    $.ajax({
+        data: {
+            fechas: $("#calendario").val()
+        },
+        type: 'POST', 
+        dataType: 'Json',
+        url: 'app//models/graficas/personas_mesa.php', 
+        cache: false,
+        beforeSend: function(){}, 
+        success: function(response){ 
+            if(response.success){
+                for (let i = 0; i < response.cantidad; i++) {
+                    datos.push(response.datos[i]);
+                    labels.push(response.mesa[i]);
+                }
+
+                var ctx = document.getElementById('g_mesa_persona').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: datos,
+                            label: 'Número de Mesa',
+                            backgroundColor: [
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)',
+                                'rgb(11, 115, 171, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)',
+                                'rgb(11, 115, 171, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: '# Cantidad de Personas Atendidas por Mesa'
+                        },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                },
+                                scaleLabel: {
+                                    display: true,
+                                    labelString: 'Cantidad de Personas'
+                                  }
+                                
+                            }]
+                        }
+                    },
+                });
+                $("#datos_mesa").show();
+            } else{
+                swal('¡Error!', response.error, 'error')
+            }
+        }, 
+        error: function(){
+            swal('¡Error!','Error de ejecución del Ajax', 'error');
+        },
+        complete: function(){} 
+    }); 
+}
 
 
