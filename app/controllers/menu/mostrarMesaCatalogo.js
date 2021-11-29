@@ -1,15 +1,12 @@
 $(document).ready(function(){
-    $('#tablaMesa').DataTable({
+    $('#tablaMesaCatalogo').DataTable({
         ajax : {
-            url: 'app/models/menu/mostrarMesa.php',
+            url: 'app/models/menu/mostrarMesaCatalogo.php',
             dataSrc:''
         },
         columns :[
-            {data: 'cod_mesa'},
             {data: 'cod_mesa_catalogo'},
-            {data: 'cod_estado'},
-            {data: 'fecha_mesa'},
-            {data: 'hora_mesa'},
+            {data: 'num_mesa'},
             {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
         ]
     })

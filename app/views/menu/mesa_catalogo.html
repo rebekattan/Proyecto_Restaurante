@@ -1,0 +1,40 @@
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <i class="fas fa-barcode"></i>  Mesa Catalogo
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="frm_mesa_catalogo" method="POST" autocomplete="off" onsubmit="return false">
+                            <div class="form-group">
+                                <label for="num_mesa">Mesa</label>
+                                <input type="text" class="form-control" id="num_mesa" name="num_mesa">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" id="btn_frm_mesa_catalogo">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <table id="tablaMesaCatalogo" class="table">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Número de Mesa</th>
+                        <th scope="col">Acciones</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="app/controllers/menu/mesa_catalogo.js"></script>
+<script src="app/controllers/menu/mostrarMesaCatalogo.js"></script>

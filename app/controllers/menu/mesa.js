@@ -1,5 +1,6 @@
 $(document).ready(function(){
     let $estado = document.querySelector('#cod_estado');
+    let $mesa_catalogo = document.querySelector('#cod_mesa_catalogo');
 
     function cargarEstado(){
         $.ajax({
@@ -19,7 +20,26 @@ $(document).ready(function(){
         });
     }
 
+    function cargarMesa(){
+        $.ajax({
+            type: "GET",
+            url: "app/models/menu/mostrarMesaCatalogo.php",
+            success:function(response){
+                const mesa_catalogos = JSON.parse(response)
+                
+                let template = '<option class="form-control" selected disabled>Seleccione una opción</option>'
+                
+                mesa_catalogos.forEach(mesa_catalogo => {
+                    template += `<option value="${mesa_catalogo.cod_mesa_catalogo}">${mesa_catalogo.num_mesa}</option>`
+                })
+    
+                $mesa_catalogo.innerHTML = template;
+            }
+        });
+    }
+
     cargarEstado();
+    cargarMesa();
     
     $('#btn_frm_mesa').click(function(){
         console.log("Entro a la funcion");

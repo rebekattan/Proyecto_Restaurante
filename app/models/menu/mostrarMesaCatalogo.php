@@ -3,12 +3,7 @@
     $objeto = new Conexion();
     $conexion = $objeto->Conectar();
 
-    $sql="SELECT m.cod_mesa, mc.num_mesa AS cod_mesa_catalogo, 
-    e.estado AS cod_estado, m.fecha_mesa, m.hora_mesa 
-    FROM mesa m 
-    INNER JOIN estado e ON m.cod_estado=e.cod_estado 
-    INNER JOIN mesa_catalogo mc ON m.cod_mesa_catalogo=mc.cod_mesa_catalogo 
-    ORDER BY cod_mesa ASC";
+    $sql="SELECT * FROM `mesa_catalogo` ORDER BY `cod_mesa_catalogo` ASC";
 
     $resultado=$conexion->prepare($sql);
     $resultado->execute();

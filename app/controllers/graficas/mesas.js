@@ -283,7 +283,7 @@ function crear_mpdf(){
         },
         type: 'POST', 
         dataType: 'Json',
-        url: 'app//models/reportes/cantidad_personas.php', 
+        url: 'app//models/reportes/personas_pa.php', 
         cache: false,
         beforeSend: function(){ 
            

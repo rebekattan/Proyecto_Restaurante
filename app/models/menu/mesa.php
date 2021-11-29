@@ -1,11 +1,13 @@
 <?php
     $conexion=mysqli_connect('localhost:3308','root','','bd_restaurante');
 
-    $num_mesa=$_REQUEST['num_mesa'];
+    $cod_mesa_catalogo=$_REQUEST['cod_mesa_catalogo'];
     $cod_estado=$_REQUEST['cod_estado'];
+    $fecha_mesa=$_REQUEST['fecha_mesa'];
+    $hora_mesa=$_REQUEST['hora_mesa'];
 
-    $sql = "INSERT INTO mesa (`num_mesa`, `cod_estado`) 
-    VALUES ('$num_mesa', $cod_estado)";
+    $sql = "INSERT INTO mesa (`cod_mesa_catalogo`, `cod_estado`, `fecha_mesa`, `hora_mesa`) 
+    VALUES ('$cod_mesa_catalogo', '$cod_estado', '$fecha_mesa', '$hora_mesa')";
 
     $resultado= mysqli_query($conexion,$sql);
 
