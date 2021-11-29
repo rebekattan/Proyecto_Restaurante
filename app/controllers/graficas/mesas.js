@@ -1,6 +1,39 @@
 $(document).ready(function () {
     estado_mesa();
+
     $("#calendario").daterangepicker({
+        "locale":{
+            "format":"DD/MM/YYYY",
+            "separator":" - ",
+            "applyLabel": "Aplicar",
+            "cancelLabel": "Cancelar",
+            "daysOfWeek":[
+                "Dom",
+                "Lun",
+                "Mar",
+                "Mie",
+                "Jue",
+                "Vie",
+                "Sab"
+            ],
+            "monthNames":[
+                "Enero",
+                "Febrero",
+                "Marzo",
+                "Abril",
+                "Mayo",
+                "Junio",
+                "Julio",
+                "Agosto",
+                "Septiembre",
+                "Octubre",
+                "Noviembre",
+                "Diciembre"
+            ]
+        }
+    });
+
+    $("#fecha").daterangepicker({
         "locale":{
             "format":"DD/MM/YYYY",
             "separator":" - ",
@@ -35,28 +68,46 @@ $(document).ready(function () {
     $("#btn_filtro_mesa").click(function(){
         grafica_personas_mesa(); 
     });
-    grafica_estado_mesa();   
+
+    $("#btn_filtro_estado").click(function(){
+        grafica_estado_mesa();
+    });
+
+    $("#btn_reporte_mesa").click(function(){
+        crear_mpdf();
+    });   
 });
 
 function estado_mesa(){
     var datos=[];
+    var estados=[];
 
     $.ajax({
         data: {},
         type: 'POST', 
         dataType: 'Json',
-        url: 'app//models/graficas/estado_mesa.php', 
+        url: 'app//models/graficas/estado_mesa_actual.php', 
         cache: false,
         beforeSend: function(){}, 
         success: function(response){ 
             if(response.success){
                 for (let i = 0; i < response.total; i++) {
                     datos.push(response.datos[i]);
+                    estados.push(response.mesas[i]);
                 }
 
-                $("#total_mesa_d").html(datos[0]);
-                $("#total_mesa_o").html(datos[1]);
-                $("#total_mesa_l").html(datos[2]);
+                for (let i = 0; i < datos.length; i++) {
+                    
+
+                    if(estados[i]=='Disponible'){
+                        $("#total_mesa_d").html(datos[i]);
+                    }else if(estados[i]=='Ocupada'){
+                        $("#total_mesa_o").html(datos[i]);
+                    }else if(estados[i]=='Necesita Limpieza'){
+                        $("#total_mesa_l").html(datos[i]);
+                    }
+                }
+
 
             } else{
                 swal('¡Error!', response.error, 'error')
@@ -76,7 +127,10 @@ function grafica_estado_mesa() {
     var porcentajes=[];
 
     $.ajax({
-        data: {},
+        data: {
+            fechas: $("#fecha").val(),
+            //hora: $("#hora").val()
+        },
         type: 'POST', 
         dataType: 'Json',
         url: 'app//models/graficas/estado_mesa.php', 
@@ -120,8 +174,9 @@ function grafica_estado_mesa() {
                                 "text": '# Total Estado de Mesas'
                             }
                         }
-                    })
-                    
+                    });
+
+                    $("#mesa_estado").show();
             } else{
                 swal('¡Error!', response.error, 'error')
             }
@@ -219,4 +274,38 @@ function grafica_personas_mesa() {
     }); 
 }
 
+function crear_mpdf(){
+    
+
+    $.ajax({
+        data: {
+            fechas: $("#calendario").val()
+        },
+        type: 'POST', 
+        dataType: 'Json',
+        url: 'app//models/reportes/cantidad_personas.php', 
+        cache: false,
+        beforeSend: function(){ 
+           
+        }, 
+        success: function(response){ 
+            console.log(response);
+            if(response.success){
+                //recibire una URL (archivo pdf creado)
+                //window.open(response.url);
+                document.getElementById("frame_pdf").src=response.url;
+                $("#modal_pdf").modal('show');
+            } else{
+                swal('¡Error!', response.error, 'error');
+            }
+
+        }, 
+        error: function(){
+            swal('¡Error!','Error de ejecución del Ajax', 'error');
+        },
+        complete: function(){
+            
+        } 
+    });
+}
 

@@ -1,0 +1,73 @@
+<br>
+<section class="container">
+    <div class="container-fluid">
+        <div class="row">
+            <div  class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <i class="far fa-chart-bar"></i>
+                        Ventas por fecha
+                      </h3>
+      
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        
+                      </div>
+                    </div>
+                    <div class="card-body ">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span
+                          class="input-group-text">
+                            <i class="fas fa-calendar-alt"></i>                            
+                          </span>
+                          <input type="text" class="form-control float-right" id="calendario">
+                          
+                        </div>
+                        <div class="col-md-2">
+                          <button type="button" class="btn btn-primary" id="btnEnviar">
+                            <i class="fas fa-chart-line"> Graficar</i>
+                          </button>
+                        </div>
+                    </div>  
+                    
+                      <hr>
+                      <div class="chart" style="display: none;">
+                        <canvas id="ventas" style="min-height: 250px; height: 250px; max-height: 450px; max-width: 100%;"></canvas>
+                      </div>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+              </div>
+            
+              <div  class="col-md-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                      <h3 class="card-title">
+                        <i class="far fa-chart-bar"></i>
+                        Platillos mas Vendidos
+                      </h3>
+      
+                      <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div class="chart">
+                        <canvas id="ventasPlatillos" style="min-height: 250px; height: 250px; max-height: 450px; max-width: 100%;"></canvas>
+                      </div>
+                    </div>
+                    <!-- /.card-body -->
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="app/controllers/graficas/ventas.js"></script>
