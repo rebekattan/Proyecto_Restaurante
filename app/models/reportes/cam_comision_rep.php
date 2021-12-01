@@ -5,29 +5,31 @@ $contexto="";
 $correlativo=1;
 $condicion="";
 
-$fechas=explode(' - ', $_POST['fechas']);
+//$fechas=explode(' - ', $_POST['fechas']);
 
 use Mpdf\Mpdf;
 
 require_once '../../../resources/mpdf/vendor/autoload.php';
 require_once '../../../sql/conexion.php';
 
-/*if (isset($_POST['genero'])) {
-    $condicion="AND g.nom_genero='$_POST[genero]'";
-}*/
+if (isset($_POST['comision'])) {
+    $condicion="WHERE c.comision='$_POST[comision]'";
+}
 
-$sql="SELECT  m.cod_mesa_catalogo AS mesa, p.cantidad_personas AS p_atendidas, CONCAT_WS(
+$sql="SELECT  concat_ws(
     ' ',
     e.nombres,
     e.apellidos
-) camarero, DATE_FORMAT(p.fecha_pedido, '%d/%m/%Y') fecha_pedido
-FROM pedidos p
-INNER JOIN mesa m ON p.cod_mesa=m.cod_mesa 
-INNER JOIN mesa_catalogo mc ON m.cod_mesa_catalogo=mc.cod_mesa_catalogo 
-INNER JOIN empleado e ON p.cod_empleado=e.cod_empleado
-WHERE p.cod_mesa=m.cod_mesa AND p.fecha_pedido BETWEEN STR_TO_DATE('$fechas[0]', '%d/%m/%Y') 
-AND STR_TO_DATE('$fechas[1]', '%d/%m/%Y') 
-ORDER BY m.cod_mesa_catalogo ASC";
+    ) camarero, c.comision AS comision, SUM(p.cantidad_personas) as cantidad,
+    ROUND(((CAST(c.comision AS UNSIGNED)/100)*p.cantidad_personas),2) AS importe_comision,
+    (ROUND(((CAST(c.comision AS UNSIGNED)/100)*p.cantidad_personas),2)*e.salario) AS total_comision,e.salario AS salario,
+    ((ROUND(((CAST(c.comision AS UNSIGNED)/100)*p.cantidad_personas),2)*e.salario)+e.salario) AS total_salario
+    FROM comision_detalle cd
+    INNER JOIN empleado e ON cd.cod_empleado=e.cod_empleado
+    INNER JOIN comision c ON cd.cod_comision=c.cod_comision
+    INNER JOIN pedidos p ON p.cod_empleado=e.cod_empleado
+    $condicion
+    GROUP BY p.cod_empleado";
 
 $resultado=mysqli_query($conn, $sql);
 
@@ -36,10 +38,13 @@ if (mysqli_num_rows($resultado)>0) {
         $contexto = $contexto . '
         <tr>
             <td>'.$correlativo.'</td>
-            <td>'.$fila['mesa'].'</td>
-            <td>'.$fila['p_atendidas'].'</td>
             <td>'.$fila['camarero'].'</td>
-            <td>'.$fila['fecha_pedido'].'</td>
+            <td>'.$fila['comision'].'</td>
+            <td>'.$fila['cantidad'].'</td>
+            <td>'.$fila['importe_comision'].'</td>
+            <td>'.$fila['total_comision'].'</td>
+            <td>'.$fila['salario'].'</td>
+            <td>'.$fila['total_salario'].'</td>
         </tr>
         ';
         $correlativo++;
@@ -50,10 +55,13 @@ if (mysqli_num_rows($resultado)>0) {
         <thead>
             <tr>
                 <th>#</th>
-                <th>N° de Mesa</th>
-                <th>Personas Atendidas</th>
-                <th>Nombre del Camarero/a</th>
-                <th>Fecha de Pedido</th>
+                <th>Nombre de camarero/a</th>
+                <th>Comisión</th>
+                <th>N° Personas Atendidas</th>
+                <th>Importe Comision</th>
+                <th>Total Comision</th>
+                <th>Salario</th>
+                <th>Total Salario</th>
             </tr>
         </thead>
         <tbody>'.$contexto.'</tbody>
@@ -68,7 +76,7 @@ if (mysqli_num_rows($resultado)>0) {
         <table border="1" style="width=100%; text-align: center; color: blue;">
             <tr>
                 <td>
-                    <h2>Reporte de Personas Atendidas por Mesa</h2>
+                    <h2>Reporte de Comisión por Camarero</h2>
                 </td>
             </tr>
         </table>
@@ -90,7 +98,7 @@ if (mysqli_num_rows($resultado)>0) {
 
     $mpdf->writeHTML($tabla_a_imprimir);
 
-    $file="../../../media/tmp/documento_imprimible.pdf";
+    $file="../../../media/tmp/reporte_cam.pdf";
 
     $mpdf->Output($file);
 
@@ -98,7 +106,7 @@ if (mysqli_num_rows($resultado)>0) {
         mysqli_close($conn);
         unset($correlativo, $contexto, $resultado);
 
-        $response=array('success'=>true, 'url'=>'media/tmp/documento_imprimible.pdf', 'resultado'=>$resultado);
+        $response=array('success'=>true, 'url'=>'media/tmp/reporte_cam.pdf', 'resultado'=>$resultado);
     }else{
         $response=array('success'=>false, 'error'=>'No fue posible crear el archivo pdf');
     }

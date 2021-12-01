@@ -215,7 +215,7 @@ function grafica_personas_mesa() {
                         labels: labels,
                         datasets: [{
                             data: datos,
-                            label: 'Número de Mesa',
+                            label: 'Cantidad de personas',
                             backgroundColor: [
                                 'rgb(11, 115, 171, 0.2)',
                                 'rgb(11, 115, 171, 0.2)',
@@ -275,7 +275,6 @@ function grafica_personas_mesa() {
 }
 
 function crear_mpdf(){
-    
 
     $.ajax({
         data: {
@@ -283,7 +282,7 @@ function crear_mpdf(){
         },
         type: 'POST', 
         dataType: 'Json',
-        url: 'app//models/reportes/personas_pa.php', 
+        url: 'app//models/reportes/cantidad_personas.php', 
         cache: false,
         beforeSend: function(){ 
            

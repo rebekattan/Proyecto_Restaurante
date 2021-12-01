@@ -5,11 +5,13 @@
     $camarero=[];
     $datos=[];
 
-    //$fechas=explode(" - ", $_POST['fechas']);
+    $fechas=explode(" - ", $_POST['fechas']);
 
     $sql="SELECT e.nombres AS camarero, SUM(p.cantidad_personas) as cantidad
     FROM pedidos p 
     INNER JOIN empleado e ON p.cod_empleado=e.cod_empleado
+    WHERE p.fecha_pedido BETWEEN STR_TO_DATE('$fechas[0]', '%d/%m/%Y') 
+    AND  STR_TO_DATE('$fechas[1]', '%d/%m/%Y')
     GROUP BY p.cod_empleado";
 
     $resultado=mysqli_query($conn, $sql);
