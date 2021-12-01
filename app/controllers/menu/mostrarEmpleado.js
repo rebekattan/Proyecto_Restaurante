@@ -14,7 +14,6 @@ $(document).ready(function(){
             {data: 'direccion'},
             {data: 'cod_cargo'},
             {data: 'salario'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
         ]
     })
 });

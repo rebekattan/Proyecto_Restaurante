@@ -6,8 +6,7 @@ $(document).ready(function(){
         },
         columns :[
             {data: 'cod_estado'},
-            {data: 'estado'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'estado'}
         ]
     })
 });

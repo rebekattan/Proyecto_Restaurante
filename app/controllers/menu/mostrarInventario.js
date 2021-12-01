@@ -11,8 +11,7 @@ $(document).ready(function(){
             {data: 'existencia_max'},
             {data: 'existencia_min'},
             {data: 'existencia_actual'},
-            {data: 'cod_unidad'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'cod_unidad'}
         ]
     })
 });

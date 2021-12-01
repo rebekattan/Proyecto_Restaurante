@@ -6,8 +6,7 @@ $(document).ready(function(){
         },
         columns :[
             {data: 'cod_mesa_catalogo'},
-            {data: 'num_mesa'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'num_mesa'}
         ]
     })
 });

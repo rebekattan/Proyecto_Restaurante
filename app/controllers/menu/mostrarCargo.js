@@ -7,8 +7,7 @@ $(document).ready(function(){
         },
         columns :[
             {data: 'cod_cargo'},
-            {data: 'cargo'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'cargo'}
         ]
     });
     editarCargo("#tablaCargo tbody", table);

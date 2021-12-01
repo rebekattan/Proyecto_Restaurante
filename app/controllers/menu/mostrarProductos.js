@@ -9,8 +9,7 @@ $(document).ready(function(){
             {data: 'nom_producto'},
             {data: 'cod_tipo_producto'},
             {data: 'cod_marca'},
-            {data: 'precio_unitario'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'precio_unitario'}
         ]
     })
 });

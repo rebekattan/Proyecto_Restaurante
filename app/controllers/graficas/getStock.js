@@ -48,7 +48,7 @@ function grafStock(){
                           }
                         }
                       },
-                })
+                });
             } else {
                 swal('¡Error!', response.error, 'error');
             }

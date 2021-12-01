@@ -5,11 +5,11 @@ include("../../../sql/conexion.php");
     $platillos=[];
     $datos=[]; 
 
-    $sql="SELECT rc.nom_receta platillos, SUM(pd.cantidad) vendidos
-    FROM platillo p
-    INNER JOIN receta_catalogo rc ON p.cod_receta_catalogo = rc.cod_receta_catalogo
-    INNER JOIN pedido_detalle pd ON p.cod_platillo=pd.cod_platillo
-    GROUP BY rc.nom_receta";
+    $sql="SELECT receta_catalogo.nom_receta platillos, SUM(pedido_detalle.cantidad) vendidos
+        FROM platillo
+        INNER JOIN receta_catalogo ON platillo.cod_receta_catalogo = receta_catalogo.cod_receta_catalogo
+        INNER JOIN pedido_detalle ON platillo.cod_platillo=pedido_detalle.cod_platillo
+        GROUP BY platillos";
 
     $resultado=mysqli_query($conn, $sql);
 
@@ -23,7 +23,7 @@ include("../../../sql/conexion.php");
             'success'=>true,
             'datos'=>$datos,
             'platillos'=>$platillos,
-            'vendidos'=>mysqli_num_rows($resultado)
+            'total'=>mysqli_num_rows($resultado)
         );
 
         mysqli_close($conn);

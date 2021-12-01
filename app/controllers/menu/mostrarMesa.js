@@ -9,8 +9,7 @@ $(document).ready(function(){
             {data: 'cod_mesa_catalogo'},
             {data: 'cod_estado'},
             {data: 'fecha_mesa'},
-            {data: 'hora_mesa'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'hora_mesa'}
         ]
     })
 });

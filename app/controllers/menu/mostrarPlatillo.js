@@ -10,8 +10,7 @@ $(document).ready(function(){
             {data: 'raciones'},
             {data: 'precio'},
             {data: 'cod_tipo_platillo'},
-            {data: 'existencia'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'existencia'}
         ]
     })
 });

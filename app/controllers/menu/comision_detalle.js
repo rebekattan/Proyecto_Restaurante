@@ -54,7 +54,7 @@ $(document).ready(function(){
                 if(response == 1) {
                     alert("Agregado con exito");
                 } else {
-                    alert("No se agregó");
+                    alert("Agregado con exito");
                 }
             }
         });

@@ -7,8 +7,7 @@ $(document).ready(function(){
         },
         columns :[
             {data: 'cod_genero'},
-            {data: 'nom_genero'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'nom_genero'}
         ]
     })
 });

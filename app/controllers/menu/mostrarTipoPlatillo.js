@@ -6,8 +6,7 @@ $(document).ready(function(){
         },
         columns :[
             {data: 'cod_tipo_platillo'},
-            {data: 'nom_tipo_platillo'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'nom_tipo_platillo'}
         ]
     })
 });

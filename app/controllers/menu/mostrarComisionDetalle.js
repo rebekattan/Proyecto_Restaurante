@@ -7,8 +7,7 @@ $(document).ready(function(){
         columns :[
             {data: 'cod_comision_detalle'},
             {data: 'cod_empleado'},
-            {data: 'cod_comision'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'cod_comision'}
         ]
     })
 });

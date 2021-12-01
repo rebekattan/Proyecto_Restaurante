@@ -6,8 +6,7 @@ $(document).ready(function(){
         },
         columns :[
             {data: 'cod_marca'},
-            {data: 'nom_marca'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'nom_marca'}
         ]
     })
 });

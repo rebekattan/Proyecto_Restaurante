@@ -10,8 +10,7 @@ $(document).ready(function(){
             {data: 'fecha_pedido'},
             {data: 'cod_empleado'},
             {data: 'cantidad_personas'},
-            {data: 'notas'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'notas'}
         ]
     })
 });

@@ -9,8 +9,7 @@ $(document).ready(function(){
             {data: 'cod_pedidos'},
             {data: 'cod_platillo'},
             {data: 'cantidad'},
-            {data: 'cod_estado'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'cod_estado'}
         ]
     })
 });

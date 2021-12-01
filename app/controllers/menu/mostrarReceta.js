@@ -9,8 +9,7 @@ $(document).ready(function(){
             {data: 'cod_receta_catalogo'},
             {data: 'cod_productos'},
             {data: 'cantidad'},
-            {data: 'cod_unidad'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'cod_unidad'}
         ]
     })
 });

@@ -7,8 +7,7 @@ $(document).ready(function(){
         columns :[
             {data: 'cod_receta_catalogo'},
             {data: 'nom_receta'},
-            {data: 'desc_receta'},
-            {defaultContent: '<button>Editar</button><button>Eliminar</button>'}
+            {data: 'desc_receta'}
         ]
     })
 });
